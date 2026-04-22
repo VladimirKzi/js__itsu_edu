@@ -1,0 +1,161 @@
+:root {
+    --primary: #BA7517;
+    --primary-dark: #4f46e5;
+    --success: #10b981;
+    --error: #ef4444;
+    --text-main: #1f2937;
+    --bg-light: #f9fafb;
+	--bg: #f8f6f2;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+
+body {
+    background: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+.form-container {
+    background: #fff;
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 12px;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Progress Bar */
+.progress-wrapper {
+    height: 6px;
+    background: #9b9590;
+    border-radius: 3px;
+    margin: 15px 0 5px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: var(--primary);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-status { font-size: 12px; color: #6b7280; margin-bottom: 25px; }
+
+/* Floating Labels */
+.field-group { margin-bottom: 20px; }
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    transition: all 0.3s;
+    background: transparent;
+}
+
+label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    pointer-events: none;
+    transition: all 0.3s;
+}
+
+/* Ефект плаваючого лейбла */
+input:focus ~ label,
+input:not(:placeholder-shown) ~ label,
+textarea:focus ~ label,
+textarea:not(:placeholder-shown) ~ label,
+select:focus ~ label,
+select:valid ~ label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    background: #fff;
+    padding: 0 5px;
+    color: var(--primary);
+}
+
+/* Специфіка для select */
+select:invalid { color: transparent; }
+select:focus, select:valid { color: var(--text-main); }
+
+/* Стани валідації */
+.valid input, .valid textarea, .valid select { border-color: var(--success); }
+.invalid input, .invalid textarea, .invalid select { border-color: var(--error); }
+
+.error-text {
+    font-size: 12px;
+    color: var(--error);
+    margin-top: 5px;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
+
+.invalid .error-text { opacity: 1; transform: translateY(0); }
+
+.status-icon { position: absolute; right: 15px; font-weight: bold; }
+.valid .status-icon::after { content: "✓"; color: var(--success); }
+.invalid .status-icon::after { content: "✗"; color: var(--error); }
+
+/* Кнопка та Loader */
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+button:disabled { background: #9b9590; cursor: not-allowed; }
+
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #fff;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: none;
+    animation: rotation 1s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Success Overlay */
+.success-overlay {
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 10;
+}
+
+.hidden { display: none; }

@@ -1,0 +1,77 @@
+:root {
+    --bg-color: #f8f6f2;
+    --column-bg: #9b9590;
+    --card-bg: #ffffff;
+    --primary: #0F6E56;
+	--cancel: #BA7517;
+    --high: #ef4444;
+    --medium: #f59e0b;
+    --low: #10b981;
+}
+
+body { font-family: sans-serif; background: var(--bg-color); margin: 0; }
+
+.app-header {
+    background: #fff; padding: 20px;display: -webkit-box;
+    justify-content: space-between; align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.controls {
+    width: 300px;
+	margin-left: 300px;
+}
+
+.board {
+    display: flex; gap: 20px; padding: 20px;
+    height: calc(100vh - 300px); overflow-x: auto;
+}
+
+.column {
+    background: var(--column-bg); width: 350px;
+    border-radius: 8px; display: flex; flex-direction: column;
+    min-width: 300px;
+}
+
+.column-header {
+    padding: 15px; display: flex; justify-content: space-between; align-items: center;
+}
+
+.task-list {
+    flex-grow: 1; padding: 10px; min-height: 100px;
+}
+
+/* Картка */
+.task-card {
+    background: var(--card-bg); padding: 15px; border-radius: 6px;
+    margin-bottom: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    cursor: grab; border-left: 5px solid transparent;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.task-card:active { cursor: grabbing; }
+.task-card.dragging { opacity: 0.5; transform: scale(0.95); }
+
+.task-card[data-priority="high"] { border-left-color: var(--high); }
+.task-card[data-priority="medium"] { border-left-color: var(--medium); }
+.task-card[data-priority="low"] { border-left-color: var(--low); }
+
+/* Стан при перетягуванні над колонкою */
+.task-list.drag-over {
+    background: rgba(0,0,0,0.05);
+    border: 2px dashed #ccc;
+    border-radius: 6px;
+}
+
+/* Модалка */
+.modal {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+    display: flex; align-items: center; justify-content: center; z-index: 100;
+}
+.modal.hidden { display: none; }
+.modal-content { background: #fff; padding: 25px; border-radius: 12px; width: 400px; }
+
+/* Кнопки та форми  */ 
+.btn-primary { background: var(--primary); color: #fff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; }
+.btn-cancel { background: var(--cancel); color: #fff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; }
+input, textarea, select { width: 100%; margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }

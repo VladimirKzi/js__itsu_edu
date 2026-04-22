@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практична робота 6 - Частина 2 - Варіант 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1>Kanban</h1>
+        <div class="controls">
+            <input type="text" id="searchInput" placeholder="Пошук завдань...">
+            <select id="filterPriority">
+                <option value="all">Усі пріоритети</option>
+                <option value="high">Високий</option>
+                <option value="medium">Середній</option>
+                <option value="low">Низький</option>
+            </select>
+            <button id="addTaskBtn" class="btn-primary">+ Додати задачу</button>
+        </div>
+    </header>
+
+    <main class="board">
+        <div class="column" data-status="todo">
+            <div class="column-header">
+                <h2>To Do</h2>
+                <span class="count">0</span>
+            </div>
+            <div class="task-list" id="todo"></div>
+        </div>
+        <div class="column" data-status="inprogress">
+            <div class="column-header">
+                <h2>In Progress</h2>
+                <span class="count">0</span>
+            </div>
+            <div class="task-list" id="inprogress"></div>
+        </div>
+        <div class="column" data-status="done">
+            <div class="column-header">
+                <h2>Done</h2>
+                <span class="count">0</span>
+            </div>
+            <div class="task-list" id="done"></div>
+        </div>
+    </main>
+
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="modalTitle">Нова задача</h2>
+            <form id="taskForm">
+                <input type="hidden" id="taskId">
+                <input type="text" id="taskTitle" placeholder="Заголовок" required>
+                <textarea id="taskDesc" placeholder="Опис"></textarea>
+                <div class="form-row">
+                    <select id="taskPriority">
+                        <option value="low">Низький</option>
+                        <option value="medium" selected>Середній</option>
+                        <option value="high">Високий</option>
+                    </select>
+                    <input type="text" id="taskAssignee" placeholder="Виконавець">
+                </div>
+                <input type="date" id="taskDeadline">
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" id="closeModal">Скасувати</button>
+                    <button type="submit" class="btn-primary">Зберегти</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
