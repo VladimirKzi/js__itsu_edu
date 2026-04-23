@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практична робота 8 - Варіант 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="demo-section">
+        <h3>1. Chainable API (Filter & Map)</h3>
+        <p>Масив: <code>[1, 2, 3, 4, 5, 6]</code> -> Фільтр парних -> Квадрат числа</p>
+        <div id="chainOutput" class="output">Завантаження...</div>
+    </section>
+
+    <section class="demo-section">
+        <h3>2. Memoization (Speed Test)</h3>
+        <p>Обчислення 35-го числа Фібоначчі. Перший раз — "чесно", другий — миттєво з кешу.</p>
+        <button id="runFib">Запустити тест</button>
+        <div id="fibOutput" class="output" style="margin-top: 15px; white-space: pre-line;">Натисніть кнопку для запуску...</div>
+    </section>
+
+    <section class="demo-section">
+        <h3>3. Pipe & Curry Composition</h3>
+        <p>Композиція: <code>(x + 10) * 2</code></p>
+        <div id="pipeOutput" class="output">Завантаження...</div>
+    </section>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
