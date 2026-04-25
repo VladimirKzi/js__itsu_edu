@@ -1,0 +1,46 @@
+﻿body {
+	font-family: sans-serif;
+	background: #f8f6f2;
+	display: flex;
+	justify-content: center;
+	padding: 50px;
+}
+.card {
+	background: white;
+	padding: 30px;
+	border-radius: 12px;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+	width: 400px;
+}
+h2 {
+	color: #2c3e50;
+}
+#orderBtn {
+	background: #0F6E56;
+	color: white;
+	border: none;
+	padding: 12px 20px;
+	border-radius: 6px;
+	cursor: pointer;
+	width: 100%;
+	font-size: 16px;
+}
+#orderBtn:disabled {
+	background: #9b9590;
+	cursor: not-allowed;
+}
+#statusLogs {
+	margin-top: 20px;
+	font-size: 14px;
+	border-top: 1px solid #cbd5e1;
+	padding-top: 10px;
+}
+.log-info {
+	color: #1e293b;
+	margin: 5px 0;
+}
+.log-error {
+	color: #ef4444;
+	font-weight: bold;
+	margin: 5px 0;
+}
