@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Система управління транспортом</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Управління автопарком</h1>
+
+    <div class="panel">
+        <h2>Додати новий транспорт</h2>
+        <form id="addForm" class="grid-inputs">
+            <select name="type">
+                <option value="Car">Легкове авто</option>
+                <option value="Truck">Вантажівка</option>
+                <option value="Motorcycle">Мотоцикл</option>
+            </select>
+            <input name="brand" placeholder="Бренд" required>
+            <input name="model" placeholder="Модель" required>
+            <input type="number" name="year" placeholder="Рік випуску" required>
+            <input type="number" name="mileage" placeholder="Пробіг (км)">
+            <input name="extra" placeholder="Доп. інфо">
+            <button type="submit">Додати</button>
+        </form>
+    </div>
+
+    <div class="panel">
+        <h2>Фільтри та пошук</h2>
+        <div class="grid-inputs">
+            <select id="fType">
+                <option value="all">Всі типи</option>
+                <option value="Car">Легкові</option>
+                <option value="Truck">Вантажівки</option>
+                <option value="Motorcycle">Мотоцикли</option>
+            </select>
+            <input type="number" id="fYear" placeholder="Рік вип...">
+            <input type="number" id="fMileage" placeholder="Макс. пробіг...">
+        </div>
+    </div>
+
+    <div class="stats-bar" id="stats">Додайте транспорт, щоб побачити статистику</div>
+
+    <div id="fleetGrid" class="fleet-grid">
+        </div>
+</div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

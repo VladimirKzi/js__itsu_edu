@@ -1,0 +1,70 @@
+﻿body {
+	font-family: system-ui, sans-serif;
+	background: #f8f6f2;
+	padding: 20px;
+	color: #1c1e21;
+}
+.container {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+.panel { background: white;
+	padding: 20px;
+	border-radius: 12px;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+	margin-bottom: 20px;
+}
+h2 { margin-top: 0;
+	font-size: 1.2rem;
+	border-bottom: 2px solid #eee;
+	padding-bottom: 10px;
+}
+
+.grid-inputs {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+	gap: 10px;
+	}
+input, select, button {
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	font-size: 14px;
+}
+button {
+	background: #BA7517;
+	color: white;
+	border: none;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.fleet-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	gap: 15px;
+}
+.card {
+	background: white;
+	padding: 15px;
+	border-radius: 10px;
+	border-top: 4px solid #BA7517;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.card h4 {
+	margin: 0 0 10px 0;
+	color: #BA7517;
+	}
+.price {
+	font-weight: bold;
+	color: #BA7517;
+	margin-top: 10px;
+	}
+.stats-bar {
+	background: #BA7517;
+	color: #FFF;
+	padding: 10px 20px;
+	border-radius: 8px;
+	margin-bottom: 15px;
+}
