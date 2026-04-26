@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub User Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="search-box">
+        <input type="text" id="usernameInput" placeholder="Введіть GitHub username (напр. microsoft)">
+        <button id="searchBtn">Знайти</button>
+    </div>
+
+    <div id="loader" class="loader">Завантаження даних...</div>
+    <div id="errorMessage" class="error"></div>
+
+    <div class="content">
+        <div id="profile"></div>
+        <div id="reposList"></div>
+    </div>
+	
+	<div id="modal" class="modal hidden">
+        <div class="modal-content">
+		<button id="closeModal" class="btn-cancel">X</button>
+            <div id="reposDetails"></div>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
