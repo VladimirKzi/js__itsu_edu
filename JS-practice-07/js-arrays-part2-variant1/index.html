@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична робота 7.2: Алгоритми з масивами - Варіант 1: Алгоритми сортування</title>
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; background: #f8f6f2; color: #0f172a; padding: 30px; margin: 0; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .card { background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05); }
+        
+        .controls-panel { display: flex; gap: 15px; align-items: center; justify-content: center; background: #cbd5e1; padding: 20px; border-radius: 12px; margin-bottom: 25px; flex-wrap: wrap; }
+        .control-group { display: flex; flex-direction: column; gap: 5px; }
+        label { font-size: 12px; font-weight: 600; color: #0f172a; text-transform: uppercase; }
+        select { padding: 10px 16px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; background: white; min-width: 180px; }
+        
+        button { background: #BA7517; color: white; border: none; padding: 12px 28px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 14px; transition: background 0.2s, transform 0.1s; margin-top: 18px; }
+        button:hover { background: #BA7517; }
+        button:active { transform: scale(0.98); }
+        button:disabled { background: #94a3b8; cursor: not-allowed; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 16px; text-align: left; border-bottom: 1px solid #e2e8f0; font-size: 15px; }
+        th { background: #cbd5e1; color: #0f172a; font-weight: 600; text-transform: uppercase; font-size: 12px; }
+        tr:hover { background: #cbd5e1; }
+        mark { background: #dcfce7; color: #15803d; padding: 6px 12px; border-radius: 6px; font-weight: bold; font-family: monospace; font-size: 14px; }
+        .badge-size { background: #e0f2fe; color: #0369a1; padding: 4px 8px; border-radius: 4px; font-weight: 600; font-size: 13px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+   
+    <div class="card">
+        <div class="controls-panel">
+            <div class="control-group">
+                <label for="arraySize">Розмір масиву</label>
+                <select id="arraySize">
+                    <option value="100">100 елементів</option>
+                    <option value="1000" selected>1000 елементів</option>
+                    <option value="5000">5000 елементів</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label for="arrayType">Тип вхідних даних</label>
+                <select id="arrayType">
+                    <option value="random">Випадкові числа</option>
+                    <option value="sorted">Вже відсортований</option>
+                    <option value="reversed">Зворотний порядок</option>
+                    <option value="identical">Однакові елементи</option>
+                </select>
+            </div>
+
+            <button id="runBtn">Запустити аналіз</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Назва алгоритму</th>
+                    <th>Елементів</th>
+                    <th>Кількість порівнянь</th>
+                    <th>Кількість обмінів (Swaps)</th>
+                    <th>Час виконання</th>
+                </tr>
+            </thead>
+            <tbody id="resultsTable">
+                <tr>
+                    <td colspan="5" style="text-align: center; color: #94a3b8; padding: 40px 0;">
+                        Оберіть параметри тестування та запустіть бенчмарк
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
