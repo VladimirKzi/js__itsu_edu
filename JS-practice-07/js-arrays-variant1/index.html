@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Практична 7. Масиви: Варіант 1: Система управління студентами + Сортування</title>
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; background: #f8f6f2; color: #0f172a; padding: 20px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+        h2 { margin-top: 0; color: #BA7517; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; }
+        input, select, button { padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; margin: 4px 0; }
+        button { background: #BA7517; color: white; border: none; font-weight: bold; cursor: pointer; }
+        button:hover { background: #BA7517; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { text-align: left; padding: 10px; border-bottom: 1px solid #e2e8f0; }
+        th { background: #cbd5e1; }
+        .stats { background: #cbd5e1; border-left: 4px solid #BA7517; padding: 15px; border-radius: 0 8px 8px 0; }
+    </style>
+</head>
+<body>
+
+<div class="grid">
+    <!-- Ліва колонка: Система Студентів -->
+    <div class="card">
+        <h2>Система управління студентами</h2>
+        
+        <form id="studentForm" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <input name="name" placeholder="ПІБ студента" required>
+            <input type="number" name="age" placeholder="Вік" required min="16">
+            <input type="number" name="gpa" placeholder="GPA (0-100)" required>
+            <select name="faculty">
+				<option value="none">Факультет</option>
+                <option value="ФІТ">ФІТ</option>
+                <option value="ФЕАН">ФЕАН</option>
+                <option value="Юридичний">Юридичний</option>
+                <option value="Політех">Політех</option>
+            </select>
+            <button type="submit" style="grid-column: span 2;">Додати студента</button>
+        </form>
+
+        <h3>Фільтри та сортування</h3>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <select id="filterFaculty">
+                <option value="all">Всі факультети</option>
+                <option value="ФІТ">ФІТ</option>
+                <option value="ФЕАН">ФЕАН</option>
+                <option value="Юридичний">Юридичний</option>
+                <option value="Політех">Політех</option>
+            </select>
+            <input type="number" id="filterMinGpa" placeholder="Мін. GPA" style="width: 90px;">
+            <select id="sortBy">
+                <option value="gpa">За GPA</option>
+                <option value="name">За ім'ям</option>
+                <option value="age">За віком</option>
+            </select>
+            <select id="sortOrder">
+                <option value="desc">Спадання (DESC)</option>
+                <option value="asc">Зростання (ASC)</option>
+            </select>
+        </div>
+
+        <table>
+            <thead>
+                <tr><th>Ім'я</th><th>Вік</th><th>GPA</th><th>Факультет</th></tr>
+            </thead>
+            <tbody id="studentsTable"></tbody>
+        </table>
+		
+		<h3>Пошук студента по імені</h3>
+		<div style="margin: 15px 0; padding: 10px; background: #cbd5e1; border-left: 4px solid #BA7517; border-radius: 4px;">
+			<input type="text" id="searchName" placeholder="Введіть ім'я студента...">
+			<span id="searchResult" style="margin-left: 10px; color: #ea580c;"></span>
+		</div>
+    </div>
+
+    <!-- Права колонка: Статистика та Бенчмарк сортувань -->
+    <div class="card">
+        <h2>Аналітика та Тести Швидкості</h2>
+        
+        <div class="stats" id="statsPanel">
+            Статистика оновлюється...
+        </div>
+
+        <h2 style="margin-top: 30px;">Порівняння алгоритмів (Стрес-тест)</h2>
+        <p>Порівняння Bubble Sort та Quick Sort на випадкових масивах даних.</p>
+        <button id="runBenchmark" style="background: #ef4444;">Запустити Бенчмарк</button>
+
+        <table>
+            <thead>
+                <tr><th>Елементів</th><th>Bubble Sort</th><th>Quick Sort</th></tr>
+            </thead>
+            <tbody id="benchmarkResults">
+                <tr><td colspan="3" style="text-align: center; color: #64748b;">Натисніть кнопку для запуску тесту</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
